@@ -1,0 +1,10 @@
+- hosts: firewall
+  become: yes
+  roles:
+    - role: setupfw
+      tags: setupfw
+- hosts: firewall
+  become: yes
+  roles:
+    - role: ufw
+      tags: ufw

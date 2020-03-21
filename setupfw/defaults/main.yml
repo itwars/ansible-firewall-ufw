@@ -1,0 +1,6 @@
+---
+# defaults file for setupfw
+origin_rulesfile: "rules-rename-nic"
+target_rulesfile: "/etc/udev/rules.d/70-persistent-net.rules"
+origin_blacklist: "blacklist-modules"
+target_blacklist: "/etc/modprobe.d/blacklist.conf"

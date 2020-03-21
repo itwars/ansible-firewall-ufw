@@ -1,0 +1,4 @@
+---
+# handlers file for setupfw
+- name: Reboot
+  reboot:

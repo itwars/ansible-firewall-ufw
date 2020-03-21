@@ -1,0 +1,38 @@
+---
+
+# allow 
+#      in on ethX 
+#      out on ethY 
+#          to 10.0.0.0/8 
+#          from 192.168.0.0/24
+
+# tasks file for ufw
+- name: Allow everything and enable UFW
+  ufw:
+    state: enabled
+    policy: allow
+- name: Set logging
+  ufw:
+    logging: 'on'
+- name: SSH
+  ufw:
+    rule: allow
+    interface: "{{ item }}"
+    direction: in
+    port: "22"
+  with_items:
+    - WAN 
+    - LAN 
+    - DMZ 
+- name: HTTP/HTTPS
+  ufw:
+    rule: allow
+    interface: WAN
+    direction: in
+    src: any
+    dest: 10.0.0.1
+    port: "{{ item }}"
+    proto: tcp
+  with_items:
+    - http 
+    - https 

@@ -1,0 +1,3 @@
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:e0:4c:6b:34:82", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="DMZ"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:e0:4c:6b:3c:45", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="LAN"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:e0:4c:04:00:53", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="WAN"

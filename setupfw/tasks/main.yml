@@ -1,0 +1,33 @@
+---
+# tasks file for setupfw
+- name : Add buster-backports
+  apt_repository:
+    repo: deb http://deb.debian.org/debian buster-backports main
+    state: present
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+- name: install latest kernel image
+  package:
+    name: linux-image-5.4.0-0.bpo.2-amd64
+    state: latest
+  notify: Reboot
+- name: rename NIC
+  copy:
+    src: "{{origin_rulesfile}}"
+    dest: "{{target_rulesfile}}"
+  notify: Reboot
+- name: Blacklist kernel modules
+  copy:
+    src: "{{origin_blacklist}}"
+    dest: "{{target_blacklist}}"
+  notify: Reboot
+- name: install packages ufw mc vim htop
+  package:
+    name: 
+      - ufw
+      - mc 
+      - vim 
+      - htop
+    state: latest

@@ -1,0 +1,4 @@
+# allow, proto, dir, if, ip, port, dir, if, ip, port, route, comment
+
+allow, tcp, in, WAN, any, http, out, DMZ, 10.0.0.2, http, yes, Internet vers web server 
+allow, tcp, in, WAN, any, https, out, DMZ, 10.0.0.2, https, yes, Internet vers web server 

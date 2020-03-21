@@ -1,0 +1,2 @@
+ansible-playbook site.yml --tags setupfw
+ansible-playbook site.yml --tags ufw
